@@ -48,6 +48,11 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
       max-width: 1180px;
       margin: 0 auto;
@@ -222,9 +227,11 @@
         transform: translateX(-45%);
         opacity: 0.16;
       }
+
       50% {
         opacity: 0.75;
       }
+
       100% {
         transform: translateX(45%);
         opacity: 0.16;
@@ -275,6 +282,7 @@
         transform: scale(1);
         opacity: 1;
       }
+
       60% {
         transform: scale(1.85);
         opacity: 0.28;
@@ -355,7 +363,7 @@
       line-height: 1.45;
     }
 
-    .hero-visual {
+    .hero-image-frame {
       position: relative;
       min-height: 520px;
       border-radius: 34px;
@@ -375,197 +383,29 @@
       0%, 100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-13px);
       }
     }
 
-    .hero-visual::before {
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+      opacity: 0.96;
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .hero-image-frame::after {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 2px);
-      background-size: 16px 16px;
-      opacity: 0.18;
-      animation: pixelFlow 8s linear infinite;
-    }
-
-    .led-front {
-      position: absolute;
-      left: 42px;
-      top: 74px;
-      width: 49%;
-      height: 62%;
-      border-radius: 20px;
       background:
-        radial-gradient(circle at 35% 44%, rgba(0,209,255,0.8), transparent 18%),
-        radial-gradient(circle at 55% 50%, rgba(122,92,255,0.7), transparent 18%),
-        linear-gradient(135deg, rgba(0,209,255,0.26), rgba(122,92,255,0.20)),
-        #07111f;
-      border: 1px solid rgba(0,209,255,0.58);
-      box-shadow:
-        0 0 42px rgba(0,209,255,0.42),
-        inset 0 0 38px rgba(0,0,0,0.44);
-      overflow: hidden;
-      transform: perspective(900px) rotateY(6deg);
-    }
-
-    .led-front::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.42) 1px, transparent 2px);
-      background-size: 12px 12px;
-      opacity: 0.38;
-      animation: pixelFlow 7s linear infinite;
-    }
-
-    .led-front::after {
-      content: "";
-      position: absolute;
-      width: 155%;
-      height: 90px;
-      left: -25%;
-      top: 45%;
-      background: linear-gradient(90deg, transparent, rgba(0,209,255,0.96), rgba(122,92,255,0.88), transparent);
-      filter: blur(10px);
-      transform: rotate(-12deg);
-      animation: waveMove 4.5s ease-in-out infinite alternate;
-    }
-
-    .led-front .wave-line {
-      position: absolute;
-      left: -10%;
-      top: 52%;
-      width: 125%;
-      height: 4px;
-      background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), transparent);
-      box-shadow: 0 0 28px rgba(0,209,255,0.9);
-      transform: rotate(-10deg);
-      z-index: 3;
-      animation: waveMove 4.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes pixelFlow {
-      from {
-        background-position: 0 0;
-      }
-      to {
-        background-position: 80px 45px;
-      }
-    }
-
-    @keyframes waveMove {
-      from {
-        transform: translateX(-24px) rotate(-12deg);
-      }
-      to {
-        transform: translateX(34px) rotate(-8deg);
-      }
-    }
-
-    .cabinet-back {
-      position: absolute;
-      right: 40px;
-      top: 60px;
-      width: 40%;
-      height: 66%;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #1c2633, #0d1727);
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow:
-        0 0 38px rgba(0,209,255,0.18),
-        inset 0 0 36px rgba(0,0,0,0.58);
-    }
-
-    .cabinet-back::before {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border-radius: 14px;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px);
-      background-size: 42px 42px;
-    }
-
-    .cabinet-back::after {
-      content: "";
-      position: absolute;
-      width: 72px;
-      height: 120px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 16px;
-      background: linear-gradient(180deg, #2f3d4f, #141d2b);
-      border: 1px solid rgba(0,209,255,0.18);
-      box-shadow: inset 0 0 18px rgba(0,209,255,0.08);
-    }
-
-    .hardware-row {
-      position: absolute;
-      left: 48px;
-      right: 48px;
-      bottom: 36px;
-      display: grid;
-      grid-template-columns: 1.5fr 0.9fr 0.9fr 1fr;
-      gap: 14px;
-      z-index: 3;
-    }
-
-    .hardware {
-      min-height: 62px;
-      border-radius: 12px;
-      background: rgba(7,17,31,0.84);
-      border: 1px solid rgba(0,209,255,0.22);
-      box-shadow: inset 0 0 18px rgba(0,209,255,0.06);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hardware.processor::before {
-      content: "";
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      top: 20px;
-      height: 8px;
-      border-radius: 99px;
-      background: rgba(0,209,255,0.48);
-      box-shadow: 0 16px 0 rgba(122,92,255,0.36);
-    }
-
-    .hardware.card::before {
-      content: "";
-      position: absolute;
-      inset: 16px;
-      border-radius: 8px;
-      background:
-        linear-gradient(90deg, transparent 35%, rgba(0,209,255,0.5) 35% 42%, transparent 42%),
-        #0a8f66;
-    }
-
-    .hardware.power::before {
-      content: "";
-      position: absolute;
-      inset: 16px;
-      border-radius: 8px;
-      background:
-        repeating-linear-gradient(90deg, #aeb8c4 0 5px, #dce4ec 5px 9px);
-    }
-
-    .hardware.cable::before {
-      content: "";
-      position: absolute;
-      width: 52px;
-      height: 30px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      border: 6px solid #22324a;
-      border-right-color: var(--cyan);
-      border-radius: 50%;
+        linear-gradient(90deg, rgba(6,16,29,0.18), transparent, rgba(0,209,255,0.10)),
+        radial-gradient(circle at 42% 50%, rgba(0,209,255,0.16), transparent 26%);
+      pointer-events: none;
     }
 
     section {
@@ -626,6 +466,7 @@
       letter-spacing: 6px;
       text-transform: uppercase;
       margin-bottom: 32px;
+      text-align: center;
     }
 
     .section-label::before,
@@ -710,7 +551,7 @@
     .solution-card {
       border-radius: var(--radius);
       overflow: hidden;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.94);
       border: 1px solid rgba(0,209,255,0.13);
       box-shadow: 0 18px 55px rgba(43,47,58,0.10);
       transition: 0.25s ease;
@@ -722,56 +563,21 @@
     }
 
     .solution-image {
-      min-height: 230px;
-      position: relative;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(0,209,255,0.28), transparent 28%),
-        linear-gradient(135deg, #07111f, #14253d);
+      height: 235px;
+      background: #06101d;
       overflow: hidden;
     }
 
-    .solution-image::before {
-      content: "";
-      position: absolute;
-      inset: 34px;
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg, rgba(0,209,255,0.38), rgba(122,92,255,0.24)),
-        #07111f;
-      border: 1px solid rgba(0,209,255,0.4);
-      box-shadow: 0 0 34px rgba(0,209,255,0.28);
+    .solution-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.06) contrast(1.03);
+      transition: 0.35s ease;
     }
 
-    .solution-image::after {
-      content: "";
-      position: absolute;
-      inset: 34px;
-      border-radius: 18px;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.34) 1px, transparent 2px);
-      background-size: 12px 12px;
-      opacity: 0.34;
-    }
-
-    .solution-card.outdoor .solution-image::before {
-      transform: perspective(900px) rotateY(-12deg);
-      background:
-        linear-gradient(135deg, rgba(0,209,255,0.32), rgba(122,92,255,0.28)),
-        #0b1a2d;
-    }
-
-    .solution-card.glass .solution-image::before {
-      background:
-        linear-gradient(90deg, transparent 20%, rgba(0,209,255,0.28), transparent 80%),
-        rgba(255,255,255,0.08);
-      backdrop-filter: blur(2px);
-    }
-
-    .solution-card.glass .solution-image::after {
-      background-image:
-        linear-gradient(rgba(0,209,255,0.28) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,209,255,0.28) 1px, transparent 1px);
-      background-size: 28px 28px;
-      opacity: 0.32;
+    .solution-card:hover .solution-image img {
+      transform: scale(1.04);
     }
 
     .solution-copy {
@@ -803,17 +609,16 @@
 
     .tech-strip {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
       align-items: stretch;
     }
 
     .tech-item {
       border-radius: 20px;
-      padding: 22px 16px;
+      overflow: hidden;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.12);
-      text-align: center;
       transition: 0.25s ease;
     }
 
@@ -823,83 +628,36 @@
       box-shadow: 0 0 28px rgba(0,209,255,0.16);
     }
 
-    .tech-visual {
-      width: 96px;
-      height: 72px;
-      margin: 0 auto 16px;
-      border-radius: 12px;
-      background:
-        linear-gradient(135deg, rgba(0,209,255,0.16), rgba(122,92,255,0.10)),
-        #07111f;
-      border: 1px solid rgba(0,209,255,0.24);
-      position: relative;
+    .tech-image {
+      height: 155px;
+      background: #06101d;
       overflow: hidden;
     }
 
-    .tech-visual.processor::before,
-    .tech-visual.processor::after {
-      content: "";
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      height: 12px;
-      border-radius: 99px;
-      background: #24334a;
-      top: 18px;
-      box-shadow: 0 20px 0 #24334a;
+    .tech-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.08) contrast(1.05);
+      transition: 0.35s ease;
     }
 
-    .tech-visual.card-board::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      background:
-        linear-gradient(90deg, transparent 40%, rgba(0,209,255,0.42) 40% 45%, transparent 45%),
-        #0f9f6e;
-      border-radius: 6px;
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.18);
+    .tech-item:hover .tech-image img {
+      transform: scale(1.04);
     }
 
-    .tech-visual.power::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      border-radius: 6px;
-      background:
-        repeating-linear-gradient(90deg, #d9e2ec 0 5px, #b5c0cc 5px 8px);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.08);
+    .tech-copy {
+      padding: 20px;
+      text-align: center;
     }
 
-    .tech-visual.cable::before {
-      content: "";
-      position: absolute;
-      width: 72px;
-      height: 42px;
-      left: 10px;
-      top: 12px;
-      border: 7px solid #1b2c44;
-      border-radius: 50%;
-      border-right-color: var(--cyan);
-    }
-
-    .tech-visual.novastar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cyan);
-      font-weight: 900;
-      font-size: 16px;
-      letter-spacing: 1px;
-      text-shadow: 0 0 12px rgba(0,209,255,0.7);
-    }
-
-    .tech-item h3 {
+    .tech-copy h3 {
       color: var(--white);
       font-size: 16px;
       margin-bottom: 8px;
     }
 
-    .tech-item p {
+    .tech-copy p {
       color: rgba(244,248,251,0.72);
       font-size: 14px;
     }
@@ -1136,7 +894,11 @@
         min-height: auto;
       }
 
-      .hero-visual {
+      .hero-image-frame {
+        min-height: 430px;
+      }
+
+      .hero-image-frame img {
         min-height: 430px;
       }
     }
@@ -1170,10 +932,6 @@
 
       form {
         grid-template-columns: 1fr;
-      }
-
-      .hardware-row {
-        grid-template-columns: 1fr 1fr;
       }
     }
   </style>
@@ -1243,19 +1001,8 @@
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="led-front">
-            <div class="wave-line"></div>
-          </div>
-
-          <div class="cabinet-back"></div>
-
-          <div class="hardware-row">
-            <div class="hardware processor"></div>
-            <div class="hardware card"></div>
-            <div class="hardware power"></div>
-            <div class="hardware cable"></div>
-          </div>
+        <div class="hero-image-frame">
+          <img src="led-cabinet-main-img.png" alt="Open Skies LED cabinet system" />
         </div>
       </div>
     </section>
@@ -1310,23 +1057,29 @@
 
         <div class="solution-grid">
           <div class="solution-card">
-            <div class="solution-image"></div>
+            <div class="solution-image">
+              <img src="indoor-cabinet.png" alt="Indoor LED display screen" />
+            </div>
             <div class="solution-copy">
               <h3>Indoor LED Displays</h3>
               <p>Support for high-resolution displays used in venues, stores, studios and corporate spaces.</p>
             </div>
           </div>
 
-          <div class="solution-card outdoor">
-            <div class="solution-image"></div>
+          <div class="solution-card">
+            <div class="solution-image">
+              <img src="outdoor-advertisement-screen.png" alt="Outdoor LED advertisement screen" />
+            </div>
             <div class="solution-copy">
               <h3>Outdoor LED Displays</h3>
               <p>Service for bright, durable display systems built for weather and visibility.</p>
             </div>
           </div>
 
-          <div class="solution-card glass">
-            <div class="solution-image"></div>
+          <div class="solution-card">
+            <div class="solution-image">
+              <img src="glass-panel-cabinet.png" alt="Transparent glass LED display" />
+            </div>
             <div class="solution-copy">
               <h3>Transparent / Glass LED</h3>
               <p>Support for modern transparent displays used in glass, retail and architectural projects.</p>
@@ -1348,33 +1101,43 @@
         <div class="tech-panel">
           <div class="tech-strip">
             <div class="tech-item">
-              <div class="tech-visual novastar">NOVA<br>STAR</div>
-              <h3>Novastar Systems</h3>
-              <p>Support for Novastar-based display control workflows.</p>
+              <div class="tech-image">
+                <img src="video-processor.png" alt="LED video processor" />
+              </div>
+              <div class="tech-copy">
+                <h3>Video Processors</h3>
+                <p>Processor setup, configuration and signal optimization.</p>
+              </div>
             </div>
 
             <div class="tech-item">
-              <div class="tech-visual processor"></div>
-              <h3>Video Processors</h3>
-              <p>Processor setup, configuration and signal optimization.</p>
+              <div class="tech-image">
+                <img src="receiving-cards.png" alt="LED receiving cards" />
+              </div>
+              <div class="tech-copy">
+                <h3>Receiving Cards</h3>
+                <p>Mapping, calibration and display communication support.</p>
+              </div>
             </div>
 
             <div class="tech-item">
-              <div class="tech-visual card-board"></div>
-              <h3>Receiving Cards</h3>
-              <p>Mapping, calibration and display communication support.</p>
+              <div class="tech-image">
+                <img src="power-modules.png" alt="LED power modules" />
+              </div>
+              <div class="tech-copy">
+                <h3>Power Modules</h3>
+                <p>Support for power stability and component replacement needs.</p>
+              </div>
             </div>
 
             <div class="tech-item">
-              <div class="tech-visual power"></div>
-              <h3>Power Modules</h3>
-              <p>Support for power stability and component replacement needs.</p>
-            </div>
-
-            <div class="tech-item">
-              <div class="tech-visual cable"></div>
-              <h3>Signal Systems</h3>
-              <p>Clean signal flow for consistent display performance.</p>
+              <div class="tech-image">
+                <img src="cabinet-cables.png" alt="LED cabinet cables and connectors" />
+              </div>
+              <div class="tech-copy">
+                <h3>Signal & Cable Systems</h3>
+                <p>Clean signal flow for consistent display performance.</p>
+              </div>
             </div>
           </div>
         </div>
