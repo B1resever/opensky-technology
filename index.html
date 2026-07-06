@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>OpenSky Technology | LED Screen Parts, Repair & Support</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #0b1730;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #05122b;
+      color: #ffffff;
+      border-bottom: 3px solid #66c900;
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 6px;
+      color: #66c900;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-contact {
+      font-size: 14px;
+      font-weight: 700;
+      color: #b9ff67;
+    }
+
+    .hero {
+      min-height: 620px;
+      background:
+        linear-gradient(90deg, rgba(5,18,43,0.96), rgba(5,18,43,0.76), rgba(5,18,43,0.35)),
+        url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 8vw, 92px);
+      line-height: 0.95;
+      margin-bottom: 12px;
+    }
+
+    .hero .brand-line {
+      color: #66c900;
+      letter-spacing: 12px;
+      font-weight: 800;
+      font-size: clamp(18px, 3vw, 34px);
+      margin-bottom: 22px;
+    }
+
+    .hero h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      max-width: 680px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background: #66c900;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+
+    section {
+      padding: 58px 20px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .section-line {
+      width: 60px;
+      height: 4px;
+      background: #66c900;
+      margin: 0 auto 32px;
+      border-radius: 99px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #dfe5ef;
+      border-radius: 10px;
+      padding: 28px;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #66c900;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .dark-section {
+      background: #05122b;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .product {
+      background: #ffffff;
+      color: #0b1730;
+      border-radius: 8px;
+      padding: 18px 12px;
+      text-align: center;
+      font-weight: 800;
+      min-height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .service-image {
+      min-height: 360px;
+      border-radius: 12px;
+      background:
+        linear-gradient(rgba(5,18,43,0.15), rgba(5,18,43,0.15)),
+        url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .service-item {
+      border: 1px solid #dfe5ef;
+      border-radius: 8px;
+      padding: 14px;
+      font-weight: 700;
+    }
+
+    .why {
+      background:
+        linear-gradient(rgba(5,18,43,0.9), rgba(5,18,43,0.9)),
+        url("https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      text-align: center;
+    }
+
+    .why-item {
+      border-right: 1px solid rgba(255,255,255,0.25);
+      padding: 12px;
+      font-weight: 800;
+    }
+
+    .why-item:last-child {
+      border-right: none;
+    }
+
+    .contact-section {
+      background: #f4f7fb;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-panel {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .contact-panel h3 {
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      margin-bottom: 12px;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 12px;
+      background: #66c900;
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: 6px;
+      font-weight: 800;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccd5e1;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      background: #05122b;
+      color: #ffffff;
+      padding: 14px 18px;
+      border-radius: 6px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    footer {
+      background: #05122b;
+      color: #ffffff;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    footer .footer-brand {
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    footer span {
+      color: #66c900;
+      letter-spacing: 5px;
+      display: block;
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .cards,
+      .service-layout,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.25);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <a href="#home" class="logo">
+        OpenSky
+        <span>TECHNOLOGY</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#parts">Parts</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-contact">
+        305-850-1052
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>OpenSky</h1>
+        <div class="brand-line">TECHNOLOGY</div>
+
+        <h2>LED screen parts, supplies, repair and technical support</h2>
+
+        <p>
+          We sell components for LED screens and provide technical service for repair,
+          maintenance, installation and support for commercial LED display projects.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#contact">Request Service</a>
+          <a class="btn btn-secondary" href="#parts">View Available Parts</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">What We Do</h2>
+        <div class="section-line"></div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">🛒</div>
+            <h3>LED Parts & Supplies</h3>
+            <p>We offer essential replacement parts and components for different types of LED screens.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🛠</div>
+            <h3>LED Screen Repair</h3>
+            <p>Diagnosis, repair, component replacement and technical service for LED display systems.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎧</div>
+            <h3>Maintenance & Support</h3>
+            <p>Preventive and corrective maintenance to keep your LED screen operating at its best.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="parts">
+      <div class="container dark-section">
+        <h2 class="section-title">Parts We Sell</h2>
+        <div class="section-line"></div>
+
+        <div class="products-grid">
+          <div class="product">Power Supplies</div>
+          <div class="product">Receiving Cards</div>
+          <div class="product">Processor Cards</div>
+          <div class="product">LED Modules</div>
+          <div class="product">Flat Cables</div>
+          <div class="product">Network Cables</div>
+          <div class="product">Power Cables</div>
+          <div class="product">Adapters & Connectors</div>
+          <div class="product">Tools</div>
+          <div class="product">Electronic Components</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container service-layout">
+        <div class="service-image"></div>
+
+        <div>
+          <h2 class="section-title" style="text-align:left;">Technical Service</h2>
+          <div class="section-line" style="margin-left:0;"></div>
+
+          <p>
+            Our technical team provides diagnosis, repair, maintenance and replacement
+            of components for commercial LED screens.
+          </p>
+
+          <div class="service-list">
+            <div class="service-item">Diagnosis of failures</div>
+            <div class="service-item">Component replacement</div>
+            <div class="service-item">On-site repair</div>
+            <div class="service-item">Preventive maintenance</div>
+            <div class="service-item">Remote or in-person support</div>
+            <div class="service-item">Installation and setup</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="section-line"></div>
+
+        <div class="why-grid">
+          <div class="why-item">Fast Response</div>
+          <div class="why-item">Available Parts</div>
+          <div class="why-item">Service Across the Country</div>
+          <div class="why-item">Specialized Technical Team</div>
+          <div class="why-item">Reliable Business Solutions</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-box">
+        <div class="contact-panel">
+          <h3>Need Help?</h3>
+          <p>Contact us today and our team will assist you.</p>
+
+          <p><strong>Phone:</strong> 305-850-1052</p>
+          <p><strong>Email:</strong> ojedalauralil@hotmail.com</p>
+          <p><strong>Email:</strong> openskiestechnology@gmail.com</p>
+
+          <a class="whatsapp-btn" href="https://wa.me/13058501052" target="_blank">
+            Contact Now on WhatsApp
+          </a>
+        </div>
+
+        <div class="contact-panel">
+          <h3>Request Service</h3>
+
+          <form action="mailto:openskiestechnology@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Full name" required />
+            <input type="tel" name="phone" placeholder="Phone number" required />
+            <input type="email" name="email" placeholder="Email address" required />
+
+            <select name="service" required>
+              <option value="">Select service needed</option>
+              <option>LED screen repair</option>
+              <option>Parts / supplies</option>
+              <option>Maintenance</option>
+              <option>Installation</option>
+              <option>Technical support</option>
+            </select>
+
+            <textarea name="message" placeholder="Tell us what you need"></textarea>
+
+            <button type="submit">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      OpenSky
+      <span>TECHNOLOGY</span>
+    </div>
+    <p>We repair. We sell. We solve.</p>
+    <p>© 2026 OpenSky Technology. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
